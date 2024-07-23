@@ -1,11 +1,17 @@
 # Proyecto con el stack MERN
 
-Proyecto del curso de Arquitectura de Software
+Proyecto del curso de Gestión del Mantenimiento del Software.
 
-Cambio en main
+Las APIS implementan lo siguiente:
 
-Ahora es un proyecto del curso de Gestión del mantenimiento del software
+- Docker
+- Jenkins
+- SonarQube
+- New relic
 
-a
-aaaaaaaa
+Desplegada con Google Cloud:
 
+- Cloud Run
+- Artifact Registry
+- API Gateway
+- Cloud Functions
