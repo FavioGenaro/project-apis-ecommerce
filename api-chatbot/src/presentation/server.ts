@@ -17,11 +17,14 @@ export class Server {
         const {port = 3100, routes } = options;
         this.port = port;
         this.routes = routes; // inicializamos la rutas
+        
+        this.app.use(express.json());
+        this.app.use(this.routes)
     }
 
     async start(){
-        this.app.use(express.json());
-        this.app.use(this.routes)
+        // this.app.use(express.json());
+        // this.app.use(this.routes)
 
         this.app.listen(this.port, ()=>{
             console.log(`Server running on port ${ this.port }`)

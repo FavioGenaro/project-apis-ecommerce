@@ -28,8 +28,10 @@ describe('Pruebas en 02-template-string', () => {
             .send({
                 inputUser: "Hola mundo"
             })
-            .expect('Content-Type', "text/html; charset=utf-8")
-            .expect(404);
+            .expect('Content-Type', /json/)
+            .expect(200);
+            // .expect('Content-Type', "text/html; charset=utf-8")
+            // .expect(404);
         expect(res.body).toEqual(expect.any(Object));
     });
 
