@@ -1,0 +1,8 @@
+info: Hello, this is a log message!
+{"level":"info","message":"Hello, this is a log message!"}
+{"entity.name":"bonik-api-productos","entity.type":"SERVICE","hostname":"FAVIO","level":"info","message":"Hello, this is a log message!","timestamp":1717305096491}
+{"level":"info","message":"Hello, this is a log message! NR-LINKING||FAVIO|||bonik-api-productos|"}
+{"level":"info","message":"Hello, this is a log message! NR-LINKING||FAVIO|||bonik-api-productos|"}
+{"entity.name":"bonik-api-productos","entity.type":"SERVICE","hostname":"FAVIO","level":"info","message":"Hello, this is a log message!","timestamp":1717305784194}
+{"entity.name":"bonik-api-productos","entity.type":"SERVICE","hostname":"FAVIO","level":"info","message":"Hello, this is a log message!","timestamp":1717560771145}
+{"entity.name":"bonik-api-productos","entity.type":"SERVICE","hostname":"FAVIO","level":"info","message":"Hello, this is a log message!","timestamp":1717884568294}

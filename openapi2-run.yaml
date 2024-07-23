@@ -1,0 +1,306 @@
+swagger: '2.0'
+info: 
+  version: '1.0.0'
+  title: api-bonik
+  description: This api login and register user
+host: api-bonik.apigateway.probable-axon-424104-t6.cloud.goog # link base
+# basepath: /apis/user # 
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /api/product:
+    get:
+      description: post user product
+      summary: products
+      operationId: getProducts
+      x-google-backend:
+        address: https://api-productos-lowq2zju5q-tl.a.run.app # URL de Cloud Run
+        path_translation: APPEND_PATH_TO_ADDRESS
+      x-google-extensions:
+        - type: cors
+          method: "*"
+          origin: ["http://localhost:3000","http://localhost:4500","https://ecommerce-bonik-for-client.netlify.app","https://ecommerce-bonik-for-administrators.netlify.app"]
+          responseHeaders: ["Content-Type"]
+      responses:
+        '200':
+          description: A successful response
+        '401':
+          description: Error
+        '500':
+          description: Server Error
+    post:
+      description: post user product
+      summary: productsCreate
+      operationId: postRegisterProduct
+      x-google-backend:
+        address: https://api-productos-lowq2zju5q-tl.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      x-google-extensions:
+        - type: cors
+          method: "*"
+          origin: ["http://localhost:3000","http://localhost:4500","https://ecommerce-bonik-for-client.netlify.app","https://ecommerce-bonik-for-administrators.netlify.app"]
+          responseHeaders: ["Content-Type"]
+      responses:
+        '201':
+          description: "Success."
+          schema:
+            type: string
+    options:
+      operationId: optionsCreateProduct
+      summary: CORS preflight
+      responses:
+        '204':
+          description: No content
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-google-backend:
+        address: https://api-productos-lowq2zju5q-tl.a.run.app
+      x-google-extensions:
+        - type: cors
+          origin: ["http://localhost:3000","http://localhost:4500","https://ecommerce-bonik-for-client.netlify.app","https://ecommerce-bonik-for-administrators.netlify.app"]
+          method: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+          responseHeader: ["Content-Type"]
+  /api/product/{id}:
+    get:
+      description: get product by id
+      summary: products
+      operationId: getProductsById
+      x-google-backend:
+        address: https://api-productos-lowq2zju5q-tl.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      x-google-extensions:
+        - type: cors
+          method: "*"
+          origin: ["http://localhost:3000","http://localhost:4500","https://ecommerce-bonik-for-client.netlify.app","https://ecommerce-bonik-for-administrators.netlify.app"]
+          responseHeaders: ["Content-Type"]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: Id del producto.
+      responses:
+        '200':
+          description: A successful response
+        '401':
+          description: Error
+        '500':
+          description: Server Error
+  /api/shopping:
+    get:
+      description: Obtener todas las compras
+      summary: shopping
+      operationId: getShopping
+      x-google-backend:
+        address: https://api-compras-lowq2zju5q-tl.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      x-google-extensions:
+        - type: cors
+          method: "*"
+          origin: ["http://localhost:3000","http://localhost:4500","https://ecommerce-bonik-for-client.netlify.app","https://ecommerce-bonik-for-administrators.netlify.app"]
+          responseHeaders: ["Content-Type"]
+      responses:
+        '200':
+          description: A successful response
+        '401':
+          description: Error
+        '500':
+          description: Server Error
+    post:
+      description: post create shoppings
+      summary: shoppings
+      operationId: postCreateShoppings
+      x-google-backend:
+        address: https://api-compras-lowq2zju5q-tl.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      x-google-extensions:
+        - type: cors
+          method: "*"
+          origin: ["http://localhost:3000","http://localhost:4500","https://ecommerce-bonik-for-client.netlify.app","https://ecommerce-bonik-for-administrators.netlify.app"]
+          responseHeaders: ["Content-Type"]
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      deprecated: false
+      responses:
+        '200':
+          description: "Success"
+          schema:
+            type: string
+    options:
+      operationId: optionsCreateShopping
+      summary: CORS preflight
+      responses:
+        '204':
+          description: No content
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-google-backend:
+        address: https://api-compras-lowq2zju5q-tl.a.run.app
+      x-google-extensions:
+        - type: cors
+          origin: ["http://localhost:3000","http://localhost:4500","https://ecommerce-bonik-for-client.netlify.app","https://ecommerce-bonik-for-administrators.netlify.app"]
+          method: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+          responseHeader: ["Content-Type"]
+  /api/shopping/{id}:
+    get:
+      description: Obtener lista de compras de un cliente
+      summary: shopping
+      operationId: getShoppingForIdClient
+      x-google-backend:
+        address: https://api-compras-lowq2zju5q-tl.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      x-google-extensions:
+        - type: cors
+          method: "*"
+          origin: ["http://localhost:3000","http://localhost:4500","https://ecommerce-bonik-for-client.netlify.app","https://ecommerce-bonik-for-administrators.netlify.app"]
+          responseHeaders: ["Content-Type"]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: A successful response
+          # headers: {}
+        '401':
+          description: Error
+        '500':
+          description: Server Error
+  /api/shopping/c/{id}:
+    get:
+      description: Obtener datos de una compra
+      summary: shopping
+      operationId: getShoppingForId
+      x-google-backend:
+        address: https://api-compras-lowq2zju5q-tl.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      x-google-extensions:
+        - type: cors
+          method: "*"
+          origin: ["http://localhost:3000","http://localhost:4500","https://ecommerce-bonik-for-client.netlify.app","https://ecommerce-bonik-for-administrators.netlify.app"]
+          responseHeaders: ["Content-Type"]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: A successful response
+        '401':
+          description: Error
+        '500':
+          description: Server Error
+  /api/auth/login:
+    post:
+      description: post user login
+      operationId: postLoginUser
+      summary: loginuser
+      x-google-backend:
+        address: https://api-login-register-lowq2zju5q-tl.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      x-google-extensions:
+        - type: cors
+          method: "*"
+          origin: ["http://localhost:3000","http://localhost:4500","https://ecommerce-bonik-for-client.netlify.app","https://ecommerce-bonik-for-administrators.netlify.app"]
+          responseHeaders: ["Content-Type"]
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      deprecated: false
+      responses:
+        '200':
+          description: A successful response
+          headers:
+            Access-Control-Allow-Headers:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Origin:
+              type: "string"
+    options:
+      operationId: optionsLoginUser
+      summary: CORS preflight
+      responses:
+        '204':
+          description: No content
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-google-backend:
+        address: https://api-login-register-lowq2zju5q-tl.a.run.app
+      x-google-extensions:
+        - type: cors
+          origin: ["http://localhost:3000","http://localhost:4500","https://ecommerce-bonik-for-client.netlify.app","https://ecommerce-bonik-for-administrators.netlify.app"]
+          method: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+          responseHeader: ["Content-Type"]
+  /api/auth/register:
+    post:
+      description: Creates a new user
+      operationId: postRegisterUser
+      summary: registeruser
+      x-google-backend:
+        address: https://api-login-register-lowq2zju5q-tl.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      x-google-extensions:
+        - type: cors
+          method: "*"
+          origin: ["http://localhost:3000","http://localhost:4500","https://ecommerce-bonik-for-client.netlify.app","https://ecommerce-bonik-for-administrators.netlify.app"]
+          responseHeaders: ["Content-Type"]
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      deprecated: false
+      responses:
+        '200':
+          description: A successful response
+          headers:
+            Access-Control-Allow-Headers:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Origin:
+              type: "string"
+    options:
+      operationId: optionsRegisterUser
+      summary: CORS preflight
+      responses:
+        '204':
+          description: No content
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-google-backend:
+        address: https://api-login-register-lowq2zju5q-tl.a.run.app
+      x-google-extensions:
+        - type: cors
+          origin: ["http://localhost:3000","http://localhost:4500","https://ecommerce-bonik-for-client.netlify.app","https://ecommerce-bonik-for-administrators.netlify.app"]
+          method: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+          responseHeader: ["Content-Type"]
