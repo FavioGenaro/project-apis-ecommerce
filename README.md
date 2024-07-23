@@ -1,6 +1,11 @@
-# Proyecto con el stack MERN
+# Proyecto Ecommerce - APIS
 
 Proyecto del curso de Gestión del Mantenimiento del Software.
+
+Tecnologías:
+- JavaScript
+- TypeScript
+- Node.js
 
 Las APIS implementan lo siguiente:
 
